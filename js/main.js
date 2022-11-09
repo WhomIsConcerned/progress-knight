@@ -2,7 +2,7 @@ var gameData = {
     taskData: {},
     itemData: {},
 
-    coins: 10,
+    coins: 0,
     days: 365 * 14,
     evil: 0,
     paused: false,
@@ -869,7 +869,7 @@ function rebirthTwo() {
 function rebirthReset() {
     setTab(jobTabButton, "jobs")
 
-    gameData.coins = 0
+    gameData.coins = 10
     gameData.days = 365 * 14
     gameData.currentJob = gameData.taskData["Beggar"]
     gameData.currentSkill = gameData.taskData["Concentration"]
