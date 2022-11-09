@@ -61,6 +61,7 @@ const jobBaseData = {
 const skillBaseData = {
     "Concentration": {name: "Concentration", maxXp: 100, effect: 0.01, description: "Skill xp"},
     "Productivity": {name: "Productivity", maxXp: 100, effect: 0.01, description: "Job xp"},
+    "cheat thing": {name: "cheat thing", maxXp: 100, effect: 0.01, description: "Gamespeed"},
     "Bargaining": {name: "Bargaining", maxXp: 100, effect: -0.01, description: "Expenses"},
     "Meditation": {name: "Meditation", maxXp: 100, effect: 0.01, description: "Happiness"},
 
@@ -109,7 +110,7 @@ const jobCategories = {
 }
 
 const skillCategories = {
-    "Fundamentals": ["Concentration", "Productivity", "Bargaining", "Meditation"],
+    "Fundamentals": ["Concentration", "Productivity", "cheat thing", "Bargaining", "Meditation"],
     "Combat": ["Strength", "Battle tactics", "Muscle memory"],
     "Magic": ["Mana control", "Immortality", "Time warping", "Super immortality"],
     "Dark magic": ["Dark influence", "Evil control", "Intimidation", "Demon training", "Blood meditation", "Demon's wealth"]
@@ -270,6 +271,12 @@ function setCustomEffects() {
         return multiplier
     }
 
+    var cheatThing = gameData.taskData["cheat thing"]
+    cheatThing.getEffect = function() {
+        var multiplier = q + getBaseLog(13, cheatThing.level +1)
+        return multiplier
+    }
+
     var intimidation = gameData.taskData["Intimidation"]
     intimidation.getEffect = function() {
         var multiplier = 1 - getBaseLog(7, intimidation.level + 1) / 10
@@ -325,7 +332,8 @@ function getEvilGain() {
 
 function getGameSpeed() {
     var timeWarping = gameData.taskData["Time warping"]
-    var timeWarpingSpeed = gameData.timeWarpingEnabled ? timeWarping.getEffect() : 1
+    var cheatThing = gameData.taskData["cheat thing"]
+    var timeWarpingSpeed = gameData.timeWarpingEnabled ? timeWarping.getEffect() + cheatThing.getEffect() : 1 
     var gameSpeed = baseGameSpeed * +!gameData.paused * +isAlive() * timeWarpingSpeed
     return gameSpeed
 }
@@ -1064,7 +1072,7 @@ gameData.requirements = {
     "Rebirth note 2": new AgeRequirement([document.getElementById("rebirthNote2")], [{requirement: 65}]),
     "Rebirth note 3": new AgeRequirement([document.getElementById("rebirthNote3")], [{requirement: 200}]),
     "Evil info": new EvilRequirement([document.getElementById("evilInfo")], [{requirement: 1}]),
-    "Time warping info": new TaskRequirement([document.getElementById("timeWarping")], [{task: "Mage", requirement: 10}]),
+    "Time warping info": new TaskRequirement([document.getElementById("timeWarping")], [{task: "Beggar", requirement: 10}]),
     "Automation": new AgeRequirement([document.getElementById("automation")], [{requirement: 20}]),
     "Quick task display": new AgeRequirement([document.getElementById("quickTaskDisplay")], [{requirement: 20}]),
 
@@ -1098,6 +1106,7 @@ gameData.requirements = {
     //Fundamentals
     "Concentration": new TaskRequirement([getTaskElement("Concentration")], []),
     "Productivity": new TaskRequirement([getTaskElement("Productivity")], [{task: "Concentration", requirement: 5}]),
+    "cheat thing": new TaskRequirement([getTaskElement("cheat thing")], [{task: "Productivity", requirement: 5}]),
     "Bargaining": new TaskRequirement([getTaskElement("Bargaining")], [{task: "Concentration", requirement: 20}]),
     "Meditation": new TaskRequirement([getTaskElement("Meditation")], [{task: "Concentration", requirement: 30}, {task: "Productivity", requirement: 20}]),
 
