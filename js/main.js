@@ -19,7 +19,7 @@ const permanentUnlocks = ["Scheduling", "Shop", "Quick task display"];
 const units = ["", "k", "M", "B", "T", "q", "Q", "Sx", "Sp", "Oc", "Nn"];
 
 const jobBaseData = {
-  Beggar: { name: "Beggar", maxXp: 50, income: 5 },
+  Beggar: { name: "Beggar", maxXp: 50, income: 5000 },
   Farmer: { name: "Farmer", maxXp: 100, income: 9 },
   Fisherman: { name: "Fisherman", maxXp: 200, income: 15 },
   Miner: { name: "Miner", maxXp: 400, income: 40 },
