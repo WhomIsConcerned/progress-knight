@@ -58,10 +58,10 @@ const jobBaseData = {
 }
 
 const skillBaseData = {
-    "Concentration": {name: "Concentration", maxXp: 100, effect: 0.01, description: "Skill xp"},
-    "Productivity": {name: "Productivity", maxXp: 100, effect: 0.01, description: "Job xp"},
-    "Bargaining": {name: "Bargaining", maxXp: 100, effect: -0.01, description: "Expenses"},
-    "Meditation": {name: "Meditation", maxXp: 100, effect: 0.01, description: "Happiness"},
+    "Concentration": {name: "Concentration", maxXp: 100, effect: 0.1, description: "Skill xp"},
+    "Productivity": {name: "Productivity", maxXp: 100, effect: 0.1, description: "Job xp"},
+    "Bargaining": {name: "Bargaining", maxXp: 100, effect: -0.1, description: "Expenses"},
+    "Meditation": {name: "Meditation", maxXp: 100, effect: 0.1, description: "Happiness"},
 
     "Strength": {name: "Strength", maxXp: 100, effect: 0.01, description: "Military pay"},
     "Battle tactics": {name: "Battle tactics", maxXp: 100, effect: 0.01, description: "Military xp"},
