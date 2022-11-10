@@ -280,13 +280,13 @@ function setCustomEffects() {
 
     var timeWarping = gameData.taskData["Time warping"]
     timeWarping.getEffect = function() {
-        var multiplier = 1 + getBaseLog(13, timeWarping.level + 1) 
+        var multiplier = 1 + getBaseLog(3, timeWarping.level + 1) 
         return multiplier
     }
 
     var immortality = gameData.taskData["Immortality"]
     immortality.getEffect = function() {
-        var multiplier = 1 + getBaseLog(33, immortality.level + 1) 
+        var multiplier = 1 + getBaseLog(13, immortality.level + 1) 
         return multiplier
     }
 }
