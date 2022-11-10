@@ -3,7 +3,7 @@ var gameData = {
     itemData: {},
 
     coins: 0,
-    days: 365 * 12,
+    days: 365 * 14,
     evil: 0,
     paused: false,
     timeWarpingEnabled: true,
@@ -39,7 +39,6 @@ const jobBaseData = {
     "Miner": {name: "Miner", maxXp: 400, income: 40},
     "Blacksmith": {name: "Blacksmith", maxXp: 800, income: 80},
     "Merchant": {name: "Merchant", maxXp: 1600, income: 150},
-    "Veteran merchant": {name: "Veteran merchant", maxXp: 3200, income: 300},
 
     "Squire": {name: "Squire", maxXp: 100, income: 5},
     "Footman": {name: "Footman", maxXp: 1000, income: 50},
@@ -103,7 +102,7 @@ const itemBaseData = {
 }
 
 const jobCategories = {
-    "Common work": ["Beggar", "Farmer", "Fisherman", "Miner", "Blacksmith", "Merchant", "Veteran merchant"],
+    "Common work": ["Beggar", "Farmer", "Fisherman", "Miner", "Blacksmith", "Merchant"],
     "Military" : ["Squire", "Footman", "Veteran footman", "Knight", "Veteran knight", "Elite knight", "Holy knight", "Legendary knight"],
     "The Arcane Association" : ["Student", "Apprentice mage", "Mage", "Wizard", "Master wizard", "Chairman"]
 }
@@ -869,7 +868,7 @@ function rebirthTwo() {
 function rebirthReset() {
     setTab(jobTabButton, "jobs")
 
-    gameData.coins = 10
+    gameData.coins = 0
     gameData.days = 365 * 14
     gameData.currentJob = gameData.taskData["Beggar"]
     gameData.currentSkill = gameData.taskData["Concentration"]
@@ -1075,7 +1074,6 @@ gameData.requirements = {
     "Miner": new TaskRequirement([getTaskElement("Miner")], [{task: "Strength", requirement: 10}, {task: "Fisherman", requirement: 10}]),
     "Blacksmith": new TaskRequirement([getTaskElement("Blacksmith")], [{task: "Strength", requirement: 30}, {task: "Miner", requirement: 10}]),
     "Merchant": new TaskRequirement([getTaskElement("Merchant")], [{task: "Bargaining", requirement: 50}, {task: "Blacksmith", requirement: 10}]),
-    "Veteran merchant": new TaskRequirement([getTaskElement("Veteran merchant")], [{task: "Bargaining", requirement: 200}, {task: "Merchant", requirement: 10}]),
 
     //Military 
     "Squire": new TaskRequirement([getTaskElement("Squire")], [{task: "Strength", requirement: 5}]),
