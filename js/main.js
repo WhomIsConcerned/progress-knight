@@ -33,8 +33,8 @@ const baseGameSpeed = 4
 const permanentUnlocks = ["Scheduling", "Shop", "Automation", "Quick task display"]
 
 const jobBaseData = {
-    "Beggar": {name: "Beggar", maxXp: 50, income: 9},
-    "Farmer": {name: "Farmer", maxXp: 100, income: 11},
+    "Beggar": {name: "Beggar", maxXp: 50, income: 5},
+    "Farmer": {name: "Farmer", maxXp: 100, income: 9},
     "Fisherman": {name: "Fisherman", maxXp: 200, income: 15},
     "Miner": {name: "Miner", maxXp: 400, income: 40},
     "Blacksmith": {name: "Blacksmith", maxXp: 800, income: 80},
@@ -279,13 +279,13 @@ function setCustomEffects() {
 
     var timeWarping = gameData.taskData["Time warping"]
     timeWarping.getEffect = function() {
-        var multiplier = 1 + getBaseLog(13, timeWarping.level + 10) 
+        var multiplier = 1 + getBaseLog(13, timeWarping.level + 1) 
         return multiplier
     }
 
     var immortality = gameData.taskData["Immortality"]
     immortality.getEffect = function() {
-        var multiplier = 1 + getBaseLog(33, immortality.level + 10) 
+        var multiplier = 1 + getBaseLog(33, immortality.level + 1) 
         return multiplier
     }
 }
