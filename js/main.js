@@ -56,6 +56,7 @@ const jobBaseData = {
     "Wizard": {name: "Wizard", maxXp: 100000000, income: 50000},
     "Master wizard": {name: "Master wizard", maxXp: 10000000000, income: 250000},
     "Chairman": {name: "Chairman", maxXp: 1000000000000, income: 1000000},
+    "God of Magic": {name: "God of Magic", maxXp: 100000000000000, income: 50000000},
 }
 
 const skillBaseData = {
@@ -105,7 +106,7 @@ const itemBaseData = {
 const jobCategories = {
     "Common work": ["Beggar", "Farmer", "Fisherman", "Miner", "Blacksmith", "Merchant", "Veteran Merchant"],
     "Military" : ["Squire", "Footman", "Veteran footman", "Knight", "Veteran knight", "Elite knight", "Holy knight", "Legendary knight"],
-    "The Arcane Association" : ["Student", "Apprentice mage", "Mage", "Wizard", "Master wizard", "Chairman"]
+    "The Arcane Association" : ["Student", "Apprentice mage", "Mage", "Wizard", "Master wizard", "Chairman", "God of Magic"]
 }
 
 const skillCategories = {
@@ -156,6 +157,7 @@ const tooltips = {
     "Wizard": "Utilise advanced spells to ravage and destroy entire legions of enemy soldiers. Only a small percentage of mages deserve to attain this role and are rewarded with an insanely high pay.",
     "Master wizard": "Blessed with unparalleled talent, perform unbelievable feats with magic at will. It is said that a master wizard has enough destructive power to wipe an empire off the map.",
     "Chairman": "Spend your days administrating The Arcane Association and investigate the concepts of true immortality. The chairman receives ludicrous amounts of pay daily.",
+    "God of Magic": "Ascend the boudnary of mortals and become a true god and mantle the concept of magic.",
 
     "Concentration": "Improve your learning speed through practising intense concentration activities.",
     "Productivity": "Learn to procrastinate less at work and receive more job experience per day.",
@@ -1095,6 +1097,7 @@ gameData.requirements = {
     "Wizard": new TaskRequirement([getTaskElement("Wizard")], [{task: "Mana control", requirement: 1000}, {task: "Mage", requirement: 10}]),
     "Master wizard": new TaskRequirement([getTaskElement("Master wizard")], [{task: "Mana control", requirement: 1500}, {task: "Wizard", requirement: 10}]),
     "Chairman": new TaskRequirement([getTaskElement("Chairman")], [{task: "Mana control", requirement: 2000}, {task: "Master wizard", requirement: 10}]),
+    "God of Magic": new TaskRequirement([getTaskElement("God of Magic")], [{task: "Mana control", requirement: 3000}, {task: "Chairman", requirement: 50}]),
 
     //Fundamentals
     "Concentration": new TaskRequirement([getTaskElement("Concentration")], []),
