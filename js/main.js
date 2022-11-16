@@ -3,7 +3,7 @@ var gameData = {
     itemData: {},
 
     coins: 0,
-    days: 365 * 14,
+    days: 365 * 12,
     evil: 0,
     paused: false,
     timeWarpingEnabled: true,
